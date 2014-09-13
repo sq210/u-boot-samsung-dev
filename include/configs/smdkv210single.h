@@ -405,6 +405,7 @@
 
 #if defined(CONFIG_MCP_SINGLE)
 
+#define DMC0_MEMCONTROL		0x00202400	// SQ210
 #define DMC0_MEMCONFIG_0	0x20E01323	// MemConfig0	256MB config, 8 banks,Mapping Method[12:15]0:linear, 1:linterleaved, 2:Mixed
 #define DMC0_MEMCONFIG_1	0x40F01323	// MemConfig1
 #define DMC0_TIMINGA_REF	0x00000618	// TimingAref	7.8us*133MHz=1038(0x40E), 100MHz=780(0x30C), 20MHz=156(0x9C), 10MHz=78(0x4E)
@@ -465,12 +466,15 @@
 #define UART_UDIVSLOT_VAL	0xDDDD
 #endif
 
-#define CONFIG_NR_DRAM_BANKS    2          /* we have 2 bank of DRAM */
+#define CONFIG_NR_DRAM_BANKS    1          /* we have 2 bank of DRAM */
 #define SDRAM_BANK_SIZE         0x20000000    /* 512 MB */
 #define PHYS_SDRAM_1            MEMORY_BASE_ADDRESS /* SDRAM Bank #1 */
 #define PHYS_SDRAM_1_SIZE       SDRAM_BANK_SIZE
+
+#if 0
 #define PHYS_SDRAM_2            (MEMORY_BASE_ADDRESS + SDRAM_BANK_SIZE) /* SDRAM Bank #2 */
 #define PHYS_SDRAM_2_SIZE       SDRAM_BANK_SIZE
+#endif
 
 #define CFG_FLASH_BASE		0x80000000
 
